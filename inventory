@@ -1,0 +1,2 @@
+[all:vars]
+new_timezone: "Europe/Madrid"

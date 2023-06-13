@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Debug actual date_time
+      debug:
+        msg: "{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
+
+    - name: Set new timezone
+      timezone:
+        name: "{{ new_timezone }}"
+
+    - name: Debug new date_time
+      debug:
+        msg: "{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"   
