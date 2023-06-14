@@ -10,6 +10,11 @@
       timezone:
         name: "{{ new_timezone }}"
 
+    - name: Wait for the previous task to take effect
+      wait_for:
+        timeout: 10
+      delegate_to: localhost
+
     - name: Debug new date_time
       debug:
-        msg: "{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"   
+        msg: "{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
